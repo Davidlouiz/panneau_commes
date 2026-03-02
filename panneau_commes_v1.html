@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Site de Vol Libre de COMMES</title>
+  <style>
+    /* ── Dimensions exactes A4 paysage ─────────────────────────── */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 297mm;
+      height: 210mm;
+      overflow: hidden;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 8.5pt;
+      background: #fff;
+    }
+
+    /* Full-page background to fill white space */
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 7mm;
+      background: #1A3A5C;
+      z-index: -1;
+    }
+
+    /* ── Palette ────────────────────────────────────────────────── */
+    :root {
+      --dark-blue: #1A3A5C;
+      --mid-blue: #2E6DA4;
+      --steel-blue: #4A7FA5;
+      --accent-red: #C0392B;
+      --dark-red: #8B1A1A;
+      --dark-gray: #555555;
+      --light-bg: #EEF3F8;
+      --warn-bg: #FEF5F4;
+      --border: #B0C4D8;
+      --gray: #444444;
+    }
+
+    /* ── Structure principale ───────────────────────────────────── */
+    .page {
+      display: flex;
+      flex-direction: column;
+      width: 297mm;
+      height: 210mm;
+    }
+
+    /* Header */
+    header {
+      background: var(--dark-blue);
+      color: white;
+      text-align: center;
+      padding: 3mm 0 2.5mm;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-size: 15pt;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+
+    header h2 {
+      font-size: 10.5pt;
+      font-weight: normal;
+      margin-top: 1mm;
+    }
+
+    /* Corps : 4 colonnes */
+    .body {
+      display: flex;
+      flex: none;
+      height: 180mm;
+      gap: 2.5mm;
+      padding: 2.5mm 3mm 0;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-blue);
+      color: white;
+      font-size: 7.5pt;
+      text-align: center;
+      padding: 1.5mm 0;
+      flex-shrink: 0;
+    }
+
+    /* ── Colonnes ───────────────────────────────────────────────── */
+    .col {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .col-side {
+      width: 64mm;
+      height: 173mm;
+      flex-shrink: 0;
+      background: var(--light-bg);
+      border: 0.4pt solid var(--border);
+      border-radius: 3mm;
+      padding: 2.5mm 2.5mm 2mm;
+    }
+
+    .col-center {
+      flex: 1;
+      height: 173mm;
+      min-width: 0;
+    }
+
+    /* ── Titres de section ──────────────────────────────────────── */
+    .sec {
+      background: var(--mid-blue);
+      color: white;
+      text-align: center;
+      font-size: 8.5pt;
+      font-weight: bold;
+      border-radius: 2mm;
+      padding: 1.2mm 0;
+      margin-bottom: 2mm;
+      flex-shrink: 0;
+    }
+
+    .sec.red {
+      background: var(--accent-red);
+    }
+
+    .sec.steel {
+      background: var(--steel-blue);
+    }
+
+    .sec.darkgray {
+      background: var(--dark-gray);
+    }
+
+    .sec.darkred {
+      background: var(--dark-red);
+    }
+
+    .sec.darkblue {
+      background: #1A5A8C;
+    }
+
+    /* ── Séparateur ─────────────────────────────────────────────── */
+    hr {
+      border: none;
+      border-top: 0.3pt solid var(--border);
+      margin: 2mm 0;
+      flex-shrink: 0;
+    }
+
+    /* ── Paire label / valeur (infos) ───────────────────────────── */
+    .info-label {
+      color: var(--mid-blue);
+      font-weight: bold;
+      font-size: 8.5pt;
+      margin-top: 1.5mm;
+    }
+
+    .info-value {
+      color: #000;
+      font-size: 8.5pt;
+      padding-left: 2mm;
+      line-height: 1.35;
+    }
+
+    .info-value.gps {
+      font-weight: bold;
+      font-size: 8pt;
+    }
+
+    .info-note {
+      font-style: italic;
+      font-size: 7.5pt;
+      color: var(--gray);
+      padding-left: 2mm;
+    }
+
+    /* ── Listes à puces ─────────────────────────────────────────── */
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.bullets li {
+      display: flex;
+      gap: 1.5mm;
+      margin-bottom: 1.8mm;
+      line-height: 1.35;
+      color: #000;
+      font-size: 8.5pt;
+    }
+
+    ul.bullets li::before {
+      content: "";
+      color: var(--mid-blue);
+      font-weight: bold;
+      font-size: 10pt;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    ul.bullets.en li {
+      font-style: italic;
+      color: var(--gray);
+    }
+
+    ul.bullets.en li::before {
+      content: "";
+      color: var(--gray);
+      font-weight: normal;
+      font-size: 8pt;
+    }
+
+    /* ── Photo aérienne ─────────────────────────────────────────── */
+    .photo-aerial {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 2mm;
+    }
+
+    .photo-caption {
+      font-style: italic;
+      font-size: 7pt;
+      color: var(--gray);
+      text-align: right;
+      margin-top: 0.8mm;
+      margin-bottom: 2mm;
+      flex-shrink: 0;
+    }
+
+    /* ── Box Avertissements ─────────────────────────────────────── */
+    .warn-box {
+      flex: 1;
+      min-height: 0;
+      background: var(--warn-bg);
+      border: 1.2pt solid var(--accent-red);
+      border-radius: 3mm;
+      padding: 2.5mm 3mm 2mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .warn-title {
+      color: var(--accent-red);
+      font-size: 11pt;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 2mm;
+      flex-shrink: 0;
+    }
+
+    .warn-divider {
+      border: none;
+      border-top: 0.6pt solid var(--accent-red);
+      margin-bottom: 3mm;
+      flex-shrink: 0;
+    }
+
+    .warn-item {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #000;
+      margin-bottom: 1mm;
+      line-height: 1.3;
+    }
+
+    .warn-sub {
+      font-size: 8pt;
+      color: var(--gray);
+      margin-bottom: 2.5mm;
+      padding-left: 2mm;
+      line-height: 1.3;
+    }
+
+    .warn-accent {
+      color: var(--accent-red);
+      font-weight: bold;
+      font-size: 10pt;
+      margin-bottom: 3mm;
+    }
+
+    .warn-en-divider {
+      border: none;
+      border-top: 0.4pt solid #ccc;
+      margin: 2mm 0;
+      flex-shrink: 0;
+    }
+
+    .warn-en {
+      font-style: italic;
+      font-size: 8.5pt;
+      color: var(--gray);
+      line-height: 1.35;
+      margin-bottom: 1.5mm;
+    }
+
+    /* ── Dangers ────────────────────────────────────────────────── */
+    .danger-title {
+      color: var(--dark-blue);
+      font-weight: bold;
+      font-size: 8.5pt;
+      margin-bottom: 0.5mm;
+    }
+
+    .danger-body {
+      font-size: 8.5pt;
+      line-height: 1.3;
+      color: #000;
+      margin-bottom: 1mm;
+    }
+
+    /* ── Photo parapentiste ─────────────────────────────────────── */
+    .photo-para {
+      width: 100%;
+      max-height: 38mm;
+      object-fit: cover;
+      border-radius: 2mm;
+      margin: 1mm 0;
+      display: block;
+    }
+
+    ul.en-dng {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.en-dng li {
+      display: flex;
+      gap: 1.5mm;
+      font-style: italic;
+      font-size: 8pt;
+      color: var(--gray);
+      margin-bottom: 1mm;
+      line-height: 1.3;
+    }
+
+    ul.en-dng li::before {
+      content: "";
+      flex-shrink: 0;
+    }
+
+    /* ── Parking note ───────────────────────────────────────────── */
+    .parking-note {
+      font-size: 8.5pt;
+      line-height: 1.4;
+      color: #000;
+      margin-bottom: 1.5mm;
+    }
+
+    .parking-note-en {
+      font-style: italic;
+      font-size: 8pt;
+      color: var(--gray);
+      margin-bottom: 1mm;
+    }
+
+    /* ── Emoji non-italique dans les zones en italique ─────────── */
+    .em {
+      font-style: normal;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ══ HEADER ══════════════════════════════════════════════════════ -->
+    <header>
+      <h1>Site de Vol Libre de COMMES &nbsp;(parapente / delta)</h1>
+      <h2>🏛️ Club AS Icare &nbsp;·&nbsp; Fédération française de vol libre</h2>
+    </header>
+
+    <!-- ══ BODY ════════════════════════════════════════════════════════ -->
+    <div class="body">
+
+      <!-- ── COL A : Infos pratiques ─────────────────────────────── -->
+      <div class="col col-side">
+
+        <div class="sec">📋 INFOS PRATIQUES</div>
+
+        <div class="info-label">📍 Lieu :</div>
+        <div class="info-value">Commes Le Bouffay</div>
+
+        <div class="info-label">🛰️ GPS :</div>
+        <div class="info-value">49°20'46" N,&nbsp; 0°43'33" O</div>
+
+        <div class="info-label">⛰️ Altitude :</div>
+        <div class="info-value">68 m</div>
+
+        <div class="info-label">📻 Fréquence sécu. FFVL :</div>
+        <div class="info-value">143,9875 MHz</div>
+
+        <div class="info-label">🚑 Secours / Emergency :</div>
+        <div class="info-value">18 ou 112</div>
+
+        <div class="info-label">🏢 Gestionnaire :</div>
+        <div class="info-value">Association Sportive Icare<br>135 rue de Bayeux<br>14000 Caen</div>
+
+        <hr>
+
+        <div class="sec darkblue">🌤️ ESPACE AÉRIEN</div>
+        <ul class="bullets">
+          <li>Les règles de vol à vue s'appliquent ; respectez les priorités.</li>
+          <li>Tenez votre droite ; ne bloquez pas les autres pilotes contre la falaise.</li>
+        </ul>
+
+        <hr>
+
+        <div class="sec steel">🇬🇧 🌤️ AIRSPACE</div>
+        <ul class="bullets en">
+          <li>Visual flight rules apply; respect right of way.</li>
+          <li>Keep to the right; don't trap the other pilot near the cliff.</li>
+        </ul>
+
+      </div><!-- /col-A -->
+
+      <!-- ── COL B : Photo + Avertissements ──────────────────────── -->
+      <div class="col col-center">
+        <img class="photo-aerial" src="panneau_commes_v1.jpg" alt="Vue aérienne du site de Commes">
+        <div class="photo-caption">Image David L. – CC BY-SA 4.0</div>
+
+        <div class="warn-box">
+          <div class="warn-title">⚠&nbsp; AVERTISSEMENTS IMPORTANTS &nbsp;⚠</div>
+          <hr class="warn-divider">
+
+          <div class="warn-item">🚫 Stationnement strictement interdit sur la route, accès des secours, contrôles de
+            gendarmerie.</div>
+
+          <div class="warn-item">🅿️ Garez-vous sur le parking ou dans le village.</div>
+
+          <div class="warn-item">⛰️ Les pentes sont raides et instables, risques d'éboulements : <span
+              style="color:var(--accent-red); font-size:10pt;">surveillez vos enfants ! 👦👧</span></div>
+
+          <hr class="warn-en-divider">
+          <div class="warn-en"><span class="em">🚫</span> Parking strictly prohibited along the road (emergency
+            access, police checks).</div>
+          <div class="warn-en"><span class="em">🅿️</span> Park in the parking lot or in the village.</div>
+          <div class="warn-en"><span class="em">⛰️</span> Steep and unstable ground, risk of landslides: keep a close
+            eye on your children! <span class="em">👦👧</span></div>
+        </div>
+      </div><!-- /col-B -->
+
+      <!-- ── COL C : Obligations ─────────────────────────────────── -->
+      <div class="col col-side">
+
+        <div class="sec">✅ OBLIGATIONS</div>
+        <ul class="bullets">
+          <li><span class="em">🪂</span> Volez en respectant les règles établies par la FFVL.</li>
+          <li><span class="em">🚫</span> Les waggas sont interdits devant toute la zone d'envol et de prise d'altitude.
+          </li>
+          <li><span class="em">🌿</span> Dépliez à proximité du décollage en respectant les piqueniqueurs.</li>
+          <li><span class="em">⚽</span> Le gonflage est interdit sur le terrain de foot.</li>
+        </ul>
+
+        <hr>
+
+        <div class="sec steel">🇬🇧 ✅ OBLIGATIONS</div>
+        <ul class="bullets en">
+          <li><span class="em">🪂</span> Fly according to the rules of the French Paragliding &amp; Hanggliding
+            Association.</li>
+          <li><span class="em">🚫</span> No waggas in front of the take-off and soaring zone.</li>
+          <li><span class="em">🌿</span> Inflate near the launch site, respecting picnickers.</li>
+          <li><span class="em">⚽</span> No inflation on the football field.</li>
+        </ul>
+
+        <hr>
+
+        <div class="sec darkgray">🅿️ PARKING</div>
+        <div class="parking-note">
+          Le parking se situe devant le décollage. Le stationnement sur la route est strictement interdit.
+          Depuis la plage, la remontée se fait par le chemin ; attention, il peut être glissant après la pluie.
+        </div>
+        <div class="parking-note-en"><span class="em">🇬🇧</span> The car park is in front of the launch site.
+          Roadside parking is strictly prohibited. The path up from the beach can be slippery after rain.
+        </div>
+
+      </div><!-- /col-C -->
+
+      <!-- ── COL D : Dangers particuliers ────────────────────────── -->
+      <div class="col col-side">
+
+        <div class="sec red">⚠️ DANGERS PARTICULIERS</div>
+
+        <div class="danger-title">🏔️ Atterrissage au sommet</div>
+        <div class="danger-body">L'atterrissage en haut de la falaise est possible dans la zone désignée, selon le
+          niveau du pilote.</div>
+        <hr>
+
+        <div class="danger-title">🏖️ Atterrissage sur la plage</div>
+        <div class="danger-body">Atterrissage sur la plage possible vers la gauche, à l'écart des promeneurs et
+          baigneurs. Attention aux vagues 🌊. À marée haute, l'atterrissage est parfois impossible (maree.info/28).
+        </div>
+        <hr>
+
+        <div class="danger-title">➡️ En partant vers Arromanches</div>
+        <div class="danger-body">En partant à droite, restez au vent de la butte détachée de la falaise et vérifiez
+          qu'il y a de la plage disponible.</div>
+        <hr>
+
+        <img class="photo-para" src="fc25943c-156e-46bd-a301-a0933937179f.jpg" alt="Parapentiste face à la falaise">
+
+        <hr>
+
+        <div class="sec darkred">🇬🇧 ⚠️ PARTICULAR DANGERS</div>
+        <ul class="en-dng">
+          <li><span class="em">🏔️</span> Top landing possible in the designated area, according to pilot level.</li>
+          <li><span class="em">🏖️</span> Beach landing possible by heading left, well clear of walkers and bathers.
+            Watch for waves 🌊. At high tide, landing is sometimes impossible (maree.info/28).</li>
+          <li><span class="em">➡️</span> When heading right towards Arromanches, stay downwind of the detached hillock
+            and check the tide.</li>
+        </ul>
+
+      </div><!-- /col-D -->
+
+    </div><!-- /body -->
+
+    <!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+    <footer>
+      🏛️ Club AS Icare &nbsp;·&nbsp; 135 rue de Bayeux &nbsp;·&nbsp; 14000 Caen
+      &nbsp;|&nbsp; 📻 Fréq. FFVL : 143,9875 MHz &nbsp;|&nbsp; 🚑 Secours : 18 ou 112
+    </footer>
+
+  </div><!-- /page -->
+</body>
+
+</html>
