@@ -2,6 +2,8 @@
 
 Panneau d'information A4 paysage pour le site de parapente/delta de Commes (Calvados), géré par le Club AS Icare.
 
+📄 **[Télécharger le PDF](https://raw.githubusercontent.com/Davidlouiz/panneau_commes/main/panneau_commes.pdf)**
+
 ![Aperçu du panneau](panneau_preview.png)
 
 ---
