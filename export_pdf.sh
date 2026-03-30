@@ -1,9 +1,9 @@
 #!/bin/bash
-# Convertit panneau_commes.html en PDF A4 paysage via Playwright (Chromium)
-# Rendu identique au navigateur – pas de problème d'overflow/clip.
+# Convertit panneau_commes_v6.html en PDF via Playwright (Chromium).
+# Rendu identique au navigateur, au format 100 cm × 80 cm.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-INPUT="$SCRIPT_DIR/panneau_commes.html"
+INPUT="$SCRIPT_DIR/panneau_commes_v6.html"
 OUTPUT="$SCRIPT_DIR/panneau_commes.pdf"
 
 "$SCRIPT_DIR/.venv/bin/python" - "$INPUT" "$OUTPUT" <<'PYEOF'
@@ -20,8 +20,8 @@ with sync_playwright() as p:
     page.pdf(
         path=output_path,
         landscape=True,
-        width="297mm",
-        height="210mm",
+        width="1000mm",
+        height="800mm",
         margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
         print_background=True,
     )

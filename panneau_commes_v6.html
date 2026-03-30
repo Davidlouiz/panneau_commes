@@ -6,7 +6,7 @@
   <title>Site de Vol Libre de COMMES</title>
   <style>
     @page {
-      size: 297mm 240mm;
+      size: 1000mm 800mm;
       margin: 0;
     }
 
@@ -19,11 +19,11 @@
 
     html,
     body {
-      width: 297mm;
-      height: 240mm;
+      width: 1000mm;
+      height: 800mm;
       overflow: hidden;
       font-family: Helvetica, Arial, sans-serif;
-      font-size: 8.5pt;
+      font-size: 28.33pt;
       background: #fff;
     }
 
@@ -45,8 +45,8 @@
     .page {
       display: flex;
       flex-direction: column;
-      width: 297mm;
-      height: 240mm;
+      width: 1000mm;
+      height: 800mm;
     }
 
     /* Header */
@@ -54,7 +54,7 @@
       background: var(--dark-blue);
       color: white;
       text-align: center;
-      padding: 3mm 8mm 2.5mm;
+      padding: 10mm 26.67mm 8.34mm;
       flex-shrink: 0;
     }
 
@@ -62,7 +62,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 6mm;
+      gap: 20mm;
     }
 
     .header-center {
@@ -71,7 +71,7 @@
     }
 
     header h1 {
-      font-size: 15pt;
+      font-size: 50pt;
       font-weight: bold;
       letter-spacing: 0.3px;
     }
@@ -80,8 +80,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10mm;
-      margin: 2mm auto 0;
+      gap: 33.33mm;
+      margin: 6.66mm auto 0;
       width: fit-content;
       max-width: 100%;
     }
@@ -97,17 +97,17 @@
     }
 
     .header-logo {
-      height: 14mm;
+      height: 46.67mm;
       width: auto;
       object-fit: contain;
       background: #fff;
-      border-radius: 1.5mm;
-      padding: 0.8mm;
+      border-radius: 5mm;
+      padding: 2.66mm;
       flex-shrink: 0;
     }
 
     .header-brand-text {
-      font-size: 12.5pt;
+      font-size: 41.67pt;
       font-weight: 700;
       line-height: 1.2;
     }
@@ -116,9 +116,9 @@
     .body {
       display: flex;
       flex: none;
-      height: 210mm;
-      gap: 2.5mm;
-      padding: 2.5mm 3mm 0;
+      height: 694mm;
+      gap: 8.34mm;
+      padding: 8.34mm 10mm 0;
       overflow: hidden;
     }
 
@@ -126,9 +126,9 @@
     footer {
       background: var(--dark-blue);
       color: white;
-      font-size: 7.5pt;
+      font-size: 33pt;
       text-align: center;
-      padding: 1.5mm 0;
+      padding: 8mm 0;
       flex: 1;
       display: flex;
       align-items: center;
@@ -143,44 +143,44 @@
     }
 
     .col-side {
-      width: 68mm;
-      height: 203mm;
+      width: 226.67mm;
+      height: 676.66mm;
       flex-shrink: 0;
       background: var(--light-bg);
       border: 0.4pt solid var(--border);
-      border-radius: 3mm;
-      padding: 2.5mm 2.5mm 2mm;
+      border-radius: 10mm;
+      padding: 8.34mm 8.34mm 6.66mm;
     }
 
     .col-side-d {
-      width: 65mm;
+      width: 216.67mm;
     }
 
     .col-bc {
       flex: 1;
-      height: 203mm;
+      height: 676.66mm;
       min-width: 0;
       display: flex;
       flex-direction: column;
-      gap: 2mm;
-      padding-bottom: 2mm;
+      gap: 6.66mm;
+      padding-bottom: 0;
       overflow: visible;
     }
 
     .col-bc-bottom {
       display: flex;
       flex: 1;
-      gap: 2.5mm;
+      gap: 8.34mm;
       min-height: 0;
     }
 
     .col-bc-right {
-      width: 70mm;
+      width: 233.33mm;
       flex-shrink: 0;
       background: var(--light-bg);
       border: 0.4pt solid var(--border);
-      border-radius: 3mm;
-      padding: 2.5mm 2.5mm 2mm;
+      border-radius: 10mm;
+      padding: 8.34mm 8.34mm 6.66mm;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -191,11 +191,11 @@
       background: var(--mid-blue);
       color: white;
       text-align: center;
-      font-size: 8.5pt;
+      font-size: 28.33pt;
       font-weight: bold;
-      border-radius: 2mm;
-      padding: 1.2mm 0;
-      margin-bottom: 2mm;
+      border-radius: 6.66mm;
+      padding: 4mm 0;
+      margin-bottom: 6.66mm;
       flex-shrink: 0;
     }
 
@@ -223,7 +223,7 @@
     hr {
       border: none;
       border-top: 0.3pt solid var(--border);
-      margin: 2mm 0;
+      margin: 6.66mm 0;
       flex-shrink: 0;
     }
 
@@ -231,8 +231,8 @@
     .info-label {
       color: var(--mid-blue);
       font-weight: bold;
-      font-size: 8.5pt;
-      margin-top: 0.8mm;
+      font-size: 28.33pt;
+      margin-top: 2.66mm;
     }
 
     .info-label .icon-cloud {
@@ -241,21 +241,21 @@
 
     .info-value {
       color: #000;
-      font-size: 8.5pt;
-      padding-left: 2mm;
+      font-size: 28.33pt;
+      padding-left: 6.66mm;
       line-height: 1.35;
     }
 
     .info-value.gps {
       font-weight: bold;
-      font-size: 8pt;
+      font-size: 26.67pt;
     }
 
     .info-note {
       font-style: italic;
-      font-size: 7.5pt;
+      font-size: 25pt;
       color: var(--gray);
-      padding-left: 2mm;
+      padding-left: 6.66mm;
     }
 
     /* ── Listes à puces ─────────────────────────────────────────── */
@@ -267,18 +267,18 @@
 
     ul.bullets li {
       display: flex;
-      gap: 1.5mm;
-      margin-bottom: 1.8mm;
+      gap: 5mm;
+      margin-bottom: 6mm;
       line-height: 1.35;
       color: #000;
-      font-size: 8.5pt;
+      font-size: 28.33pt;
     }
 
     ul.bullets li::before {
       content: "";
       color: var(--mid-blue);
       font-weight: bold;
-      font-size: 10pt;
+      font-size: 33.33pt;
       line-height: 1;
       flex-shrink: 0;
     }
@@ -292,33 +292,33 @@
       content: "";
       color: var(--gray);
       font-weight: normal;
-      font-size: 8pt;
+      font-size: 26.67pt;
     }
 
     /* ── Photo aérienne ─────────────────────────────────────────── */
     .photo-aerial {
       width: 100%;
-      height: 74mm;
+      height: 246.67mm;
       flex-shrink: 0;
       background-image: url('panneau_commes_v1.jpg');
       background-size: cover;
       background-position: 50% 30%;
-      border-radius: 2mm;
+      border-radius: 6.66mm;
     }
 
     .photo-caption {
       font-style: italic;
-      font-size: 7pt;
+      font-size: 23.33pt;
       color: var(--gray);
       text-align: right;
-      margin-top: -1.2mm;
-      margin-bottom: -1.5mm;
+      margin-top: -4mm;
+      margin-bottom: -5mm;
       flex-shrink: 0;
     }
 
     .photo-caption.para-credit {
       margin-top: 0;
-      margin-bottom: -1.5mm;
+      margin-bottom: -5mm;
     }
 
     /* ── Box Avertissements ─────────────────────────────────────── */
@@ -327,8 +327,8 @@
       min-height: 0;
       background: var(--warn-bg);
       border: 1.2pt solid var(--accent-red);
-      border-radius: 3mm;
-      padding: 2.5mm 3mm 2mm;
+      border-radius: 10mm;
+      padding: 8.34mm 10mm 6.66mm;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -336,80 +336,81 @@
 
     .warn-title {
       color: var(--accent-red);
-      font-size: 11pt;
+      font-size: 36.67pt;
       font-weight: bold;
       text-align: center;
-      margin-bottom: 2mm;
+      margin-bottom: 6.66mm;
       flex-shrink: 0;
     }
 
     .warn-divider {
       border: none;
       border-top: 0.6pt solid var(--accent-red);
-      margin-bottom: 3mm;
+      margin-bottom: 10mm;
       flex-shrink: 0;
     }
 
     .warn-item {
       font-weight: bold;
-      font-size: 8.5pt;
+      font-size: 28.33pt;
       color: #000;
-      margin-bottom: 1mm;
+      margin-bottom: 3.34mm;
       line-height: 1.3;
     }
 
     .warn-sub {
-      font-size: 8pt;
+      font-size: 26.67pt;
       color: var(--gray);
-      margin-bottom: 2.5mm;
-      padding-left: 2mm;
+      margin-bottom: 8.34mm;
+      padding-left: 6.66mm;
       line-height: 1.3;
     }
 
     .warn-accent {
       color: var(--accent-red);
       font-weight: bold;
-      font-size: 10pt;
-      margin-bottom: 3mm;
+      font-size: 33.33pt;
+      margin-bottom: 10mm;
     }
 
     .warn-en-divider {
       border: none;
       border-top: 0.4pt solid #ccc;
-      margin: 2mm 0;
+      margin: 6.66mm 0;
       flex-shrink: 0;
     }
 
     .warn-en {
       font-style: italic;
-      font-size: 8.5pt;
+      font-size: 28.33pt;
       color: var(--gray);
       line-height: 1.35;
-      margin-bottom: 1.5mm;
+      margin-bottom: 5mm;
     }
 
     /* ── Dangers ────────────────────────────────────────────────── */
     .danger-title {
       color: var(--dark-blue);
       font-weight: bold;
-      font-size: 8.5pt;
-      margin-bottom: 0.5mm;
+      font-size: 28.33pt;
+      margin-top: 1.5mm;
+      margin-bottom: 4mm;
     }
 
     .danger-body {
-      font-size: 8.5pt;
-      line-height: 1.3;
+      font-size: 28.33pt;
+      line-height: 1.5;
       color: #000;
-      margin-bottom: 1mm;
+      margin-bottom: 4.5mm;
     }
 
     /* ── Photo parapentiste ─────────────────────────────────────── */
     .photo-para {
       width: 100%;
-      max-height: 38mm;
+      max-height: 126.67mm;
       object-fit: cover;
-      border-radius: 2mm;
-      margin: 1mm 0;
+      border-radius: 6.66mm;
+      margin: 3.34mm 0;
       display: block;
     }
 
@@ -421,12 +422,12 @@
 
     ul.en-dng li {
       display: flex;
-      gap: 1.5mm;
+      gap: 5mm;
       font-style: italic;
-      font-size: 8pt;
+      font-size: 26.67pt;
       color: var(--gray);
-      margin-bottom: 1mm;
-      line-height: 1.3;
+      margin-bottom: 3.34mm;
+      line-height: 1.5;
     }
 
     ul.en-dng li::before {
@@ -436,23 +437,23 @@
 
     /* ── Parking note ───────────────────────────────────────────── */
     .parking-note {
-      font-size: 8.5pt;
+      font-size: 28.33pt;
       line-height: 1.4;
       color: #000;
-      margin-bottom: 1.5mm;
+      margin-bottom: 5mm;
     }
 
     .parking-note-en {
       font-style: italic;
-      font-size: 8pt;
+      font-size: 26.67pt;
       color: var(--gray);
-      margin-bottom: 1mm;
+      margin-bottom: 3.34mm;
     }
 
     /* ── Orientation ────────────────────────────────────────────── */
     .info-head {
       position: relative;
-      margin-bottom: 1mm;
+      margin-bottom: 3.34mm;
     }
 
     .info-head .sec {
@@ -461,9 +462,9 @@
 
     .orientation-box {
       position: absolute;
-      top: 27mm;
+      top: 90mm;
       right: 0;
-      width: 20mm;
+      width: 66.67mm;
       flex-shrink: 0;
       text-align: center;
     }
@@ -477,20 +478,20 @@
 
     .qr-box {
       margin-top: 0;
-      padding: 4mm 1.5mm 0;
+      padding: 13.34mm 5mm 0;
       flex-shrink: 0;
     }
 
     .qr-title {
-      margin-bottom: 3mm;
-      margin-left: -1.5mm;
-      margin-right: -1.5mm;
+      margin-bottom: 10mm;
+      margin-left: -5mm;
+      margin-right: -5mm;
     }
 
     .qr-grid {
       display: flex;
       flex-direction: column;
-      gap: 3.5mm;
+      gap: 11.66mm;
       align-items: center;
       margin-top: 0;
     }
@@ -498,30 +499,30 @@
     .qr-item {
       width: 100%;
       text-align: center;
-      padding: 2.3mm 1.3mm 1.3mm;
+      padding: 7.66mm 4.34mm 4.34mm;
       background: #f7fafc;
-      border-radius: 2.5mm;
+      border-radius: 8.34mm;
     }
 
     .qr-item img {
       display: block;
       width: 100%;
-      max-width: 20mm;
-      margin: 0 auto 1.2mm;
+      max-width: 66.67mm;
+      margin: 0 auto 4mm;
     }
 
     .qr-label {
-      font-size: 7.2pt;
+      font-size: 24pt;
       font-weight: bold;
       color: #000;
       line-height: 1.2;
     }
 
     .qr-note {
-      font-size: 6.2pt;
+      font-size: 20.67pt;
       color: var(--gray);
       line-height: 1.2;
-      margin-top: 0.4mm;
+      margin-top: 1.34mm;
       overflow-wrap: anywhere;
       word-break: break-word;
     }
@@ -640,7 +641,7 @@
             <div class="warn-item">🅿️ Garez-vous sur le parking ou dans le village.</div>
 
             <div class="warn-item">⛰️ Les pentes sont raides et instables, risques d'éboulements : <span
-                style="color:var(--accent-red); font-size:10pt;">surveillez vos enfants ! 👦👧</span></div>
+                style="color:var(--accent-red); font-size:33.33pt;">surveillez vos enfants ! 👦👧</span></div>
 
             <hr class="warn-en-divider">
             <div class="warn-en"><span class="em">🚫</span> Parking strictly prohibited along the road (emergency
@@ -667,7 +668,7 @@
 
             <hr>
 
-            <div class="sec steel">🇬🇧 ✅ OBLIGATIONS</div>
+            <div class="sec">🇬🇧 ✅ OBLIGATIONS</div>
             <ul class="bullets en">
               <li><span class="em">🪂</span> Fly according to the rules of the French Federation of Free Flight.</li>
               <li><span class="em">➡️</span> Keep to the right; don't trap other pilots against the cliff.</li>
@@ -707,7 +708,7 @@
 
         <hr>
 
-        <div class="sec darkred">🇬🇧 ⚠️ PARTICULAR DANGERS</div>
+        <div class="sec red">🇬🇧 ⚠️ PARTICULAR DANGERS</div>
         <ul class="en-dng">
           <li><span class="em">🏔️</span> Top landing possible in the designated area, according to pilot level.</li>
           <li><span class="em">🏖️</span> Beach landing possible by heading left, well clear of walkers and bathers.
