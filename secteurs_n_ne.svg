@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="680" viewBox="85 85 510 510">
 
-<!-- Tous les secteurs partent du centre exact (340,340), rayon 250 -->
-<!-- Points sur le cercle (r=250, depuis le nord, sens horaire):
+<!-- Secteurs en anneau autour du centre exact (340,340), rayon ext. 250, rayon int. 55 -->
+<!-- Points sur le cercle extérieur (r=250, depuis le nord, sens horaire):
      337.5°: (244.3, 109.0)
      22.5° : (435.7, 109.0)
      67.5° : (571.0, 244.3)
@@ -12,36 +12,46 @@
      247.5°: (109.0, 435.7)
      292.5°: (109.0, 244.3)
 -->
+<!-- Points sur le cercle intérieur (r=55):
+     337.5°: (319.0, 289.2)
+     22.5° : (361.0, 289.2)
+     67.5° : (390.8, 319.0)
+     112.5°: (390.8, 361.0)
+     157.5°: (361.0, 390.8)
+     202.5°: (319.0, 390.8)
+     247.5°: (289.2, 361.0)
+     292.5°: (289.2, 319.0)
+-->
 
 <!-- N (337.5° à 22.5°) — VERT -->
-<path d="M340 340 L244.3 109.0 A250 250 0 0 1 435.7 109.0 Z" fill="#4E9770" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M244.3 109.0 A250 250 0 0 1 435.7 109.0 L361.0 289.2 A55 55 0 0 0 319.0 289.2 Z" fill="#4E9770" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- NE (22.5° à 67.5°) — VERT -->
-<path d="M340 340 L435.7 109.0 A250 250 0 0 1 571.0 244.3 Z" fill="#4E9770" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M435.7 109.0 A250 250 0 0 1 571.0 244.3 L390.8 319.0 A55 55 0 0 0 361.0 289.2 Z" fill="#4E9770" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- E (67.5° à 112.5°) -->
-<path d="M340 340 L571.0 244.3 A250 250 0 0 1 571.0 435.7 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M571.0 244.3 A250 250 0 0 1 571.0 435.7 L390.8 361.0 A55 55 0 0 0 390.8 319.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- SE (112.5° à 157.5°) -->
-<path d="M340 340 L571.0 435.7 A250 250 0 0 1 435.7 571.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M571.0 435.7 A250 250 0 0 1 435.7 571.0 L361.0 390.8 A55 55 0 0 0 390.8 361.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- S (157.5° à 202.5°) -->
-<path d="M340 340 L435.7 571.0 A250 250 0 0 1 244.3 571.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M435.7 571.0 A250 250 0 0 1 244.3 571.0 L319.0 390.8 A55 55 0 0 0 361.0 390.8 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- SO (202.5° à 247.5°) -->
-<path d="M340 340 L244.3 571.0 A250 250 0 0 1 109.0 435.7 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M244.3 571.0 A250 250 0 0 1 109.0 435.7 L289.2 361.0 A55 55 0 0 0 319.0 390.8 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- O (247.5° à 292.5°) -->
-<path d="M340 340 L109.0 435.7 A250 250 0 0 1 109.0 244.3 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M109.0 435.7 A250 250 0 0 1 109.0 244.3 L289.2 319.0 A55 55 0 0 0 289.2 361.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- NO (292.5° à 337.5°) -->
-<path d="M340 340 L109.0 244.3 A250 250 0 0 1 244.3 109.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
+<path d="M109.0 244.3 A250 250 0 0 1 244.3 109.0 L319.0 289.2 A55 55 0 0 0 289.2 319.0 Z" fill="#E4EEF6" fill-opacity="0.82" stroke="#2F4B63" stroke-width="5" stroke-linejoin="round"/>
 
 <!-- Cercle extérieur -->
 <circle cx="340" cy="340" r="250" fill="none" stroke="#2F4B63" stroke-width="5"/>
 
-<!-- Point central -->
-<circle cx="340" cy="340" r="45" fill="#2F4B63"/>
+<!-- Cercle intérieur -->
+<circle cx="340" cy="340" r="55" fill="none" stroke="#2F4B63" stroke-width="5"/>
 
 <!-- Labels au centroïde de chaque secteur (r≈162 du centre) -->
 <text x="340" y="174" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700">N</text>
